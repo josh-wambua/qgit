@@ -21,51 +21,79 @@
     <normaloff>:/icons/resources/qgit.png</normaloff>:/icons/resources/qgit.png</iconset>
   </property>
   <widget class="QWidget" name="widget">
-   <layout class="QHBoxLayout">
-    <property name="spacing">
-     <number>6</number>
-    </property>
-    <property name="leftMargin">
-     <number>9</number>
-    </property>
-    <property name="topMargin">
-     <number>9</number>
-    </property>
-    <property name="rightMargin">
-     <number>9</number>
-    </property>
-    <property name="bottomMargin">
-     <number>9</number>
-    </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QSplitter" name="treeSplitter">
+     <widget class="QSplitter" name="splitter">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <widget class="TreeView" name="treeView">
-       <property name="contextMenuPolicy">
-        <enum>Qt::CustomContextMenu</enum>
-       </property>
-       <property name="selectionMode">
-        <enum>QAbstractItemView::ExtendedSelection</enum>
-       </property>
-       <property name="rootIsDecorated">
-        <bool>false</bool>
-       </property>
-       <property name="columnCount">
-        <number>1</number>
-       </property>
-       <column>
-        <property name="text">
-         <string>Git tree</string>
-        </property>
-       </column>
+      <widget class="QWidget" name="">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QToolButton" name="addProjectBtn">
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="removeProjectBtn">
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QListWidget" name="projectList"/>
+        </item>
+       </layout>
       </widget>
-      <widget class="QTabWidget" name="tabWdg">
-       <widget class="QWidget" name="TabWdg">
-        <attribute name="title">
-         <string>Tab&amp;Wdg</string>
-        </attribute>
+      <widget class="QSplitter" name="treeSplitter">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="TreeView" name="treeView">
+        <property name="contextMenuPolicy">
+         <enum>Qt::CustomContextMenu</enum>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::ExtendedSelection</enum>
+        </property>
+        <property name="rootIsDecorated">
+         <bool>false</bool>
+        </property>
+        <property name="columnCount">
+         <number>1</number>
+        </property>
+        <column>
+         <property name="text">
+          <string>Git tree</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QTabWidget" name="tabWdg">
+        <widget class="QWidget" name="TabWdg">
+         <attribute name="title">
+          <string>Tab&amp;Wdg</string>
+         </attribute>
+        </widget>
        </widget>
       </widget>
      </widget>
@@ -110,7 +138,7 @@
      <x>0</x>
      <y>0</y>
      <width>905</width>
-     <height>20</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="Help">
@@ -203,7 +231,7 @@
     <string>&amp;Open...</string>
    </property>
    <property name="iconText">
-    <string>Open</string>
+    <string>Open...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
@@ -211,7 +239,8 @@
   </action>
   <action name="ActExit">
    <property name="icon">
-    <iconset theme="application-exit"/>
+    <iconset theme="application-exit">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>E&amp;xit</string>
@@ -250,7 +279,7 @@
     <string>&amp;Save patch...</string>
    </property>
    <property name="iconText">
-    <string>Save patch</string>
+    <string>Save patch...</string>
    </property>
    <property name="toolTip">
     <string>Save a patch series to be sent by e-mail</string>
@@ -280,7 +309,7 @@
     <string>&amp;Settings...</string>
    </property>
    <property name="iconText">
-    <string>Settings</string>
+    <string>Settings...</string>
    </property>
   </action>
   <action name="ActCommit">
@@ -295,7 +324,7 @@
     <string>&amp;Commit...</string>
    </property>
    <property name="iconText">
-    <string>Commit</string>
+    <string>Commit...</string>
    </property>
    <property name="toolTip">
     <string>Commit changes</string>
@@ -309,13 +338,14 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset theme="tag"/>
+    <iconset theme="tag">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Make &amp;tag...</string>
    </property>
    <property name="iconText">
-    <string>Make tag</string>
+    <string>Make tag...</string>
    </property>
    <property name="toolTip">
     <string>Tag selected revision</string>
@@ -326,7 +356,8 @@
   </action>
   <action name="ActOpenRepoNewWindow">
    <property name="icon">
-    <iconset theme="window-new"/>
+    <iconset theme="window-new">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Open in a &amp;new window...</string>
@@ -340,7 +371,8 @@
   </action>
   <action name="ActClose">
    <property name="icon">
-    <iconset theme="window-close"/>
+    <iconset theme="window-close">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>&amp;Close</string>
@@ -444,7 +476,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>View file</string>
+    <string>Vie&amp;w file</string>
    </property>
    <property name="iconText">
     <string>View file</string>
@@ -464,7 +496,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset theme="document-save-as"/>
+    <iconset theme="document-save-as">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>Save file &amp;as...</string>
@@ -491,7 +524,7 @@
      <normaloff>:/icons/resources/wizard.png</normaloff>:/icons/resources/wizard.png</iconset>
    </property>
    <property name="text">
-    <string>Toggle filter by tree</string>
+    <string>To&amp;ggle filter by tree</string>
    </property>
    <property name="iconText">
     <string>Filter by tree</string>
@@ -512,7 +545,7 @@
      <normaloff>:/icons/resources/view_tree.png</normaloff>:/icons/resources/view_tree.png</iconset>
    </property>
    <property name="text">
-    <string>Toggle tree view</string>
+    <string>&amp;Toggle tree view</string>
    </property>
    <property name="iconText">
     <string>Archive tree</string>
@@ -529,7 +562,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset theme="edit-delete"/>
+    <iconset theme="edit-delete">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>&amp;Delete references...</string>
@@ -549,7 +583,8 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset theme="folder-sync"/>
+    <iconset theme="folder-sync">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>&amp;Check working directory</string>
@@ -605,7 +640,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>View revision</string>
+    <string>&amp;View revision</string>
    </property>
    <property name="iconText">
     <string>View revision</string>
@@ -623,7 +658,7 @@
      <normaloff>:/icons/resources/view_top_bottom.png</normaloff>:/icons/resources/view_top_bottom.png</iconset>
    </property>
    <property name="text">
-    <string>Toggle split view</string>
+    <string>T&amp;oggle split view</string>
    </property>
    <property name="iconText">
     <string>Toggle split view</string>
@@ -637,7 +672,8 @@
   </action>
   <action name="ActFind">
    <property name="icon">
-    <iconset theme="edit-find"/>
+    <iconset theme="edit-find">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>&amp;Find...</string>
@@ -716,10 +752,11 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset theme="tab-new"/>
+    <iconset theme="tab-new">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>View file in new tab</string>
+    <string>View file &amp;in new tab</string>
    </property>
    <property name="iconText">
     <string>View file in new tab</string>
@@ -733,10 +770,11 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset theme="tab-new"/>
+    <iconset theme="tab-new">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
-    <string>View patch in new tab</string>
+    <string>View patch in &amp;new tab</string>
    </property>
    <property name="iconText">
     <string>View patch in new tab</string>
@@ -803,7 +841,7 @@
   </action>
   <action name="ActToggleLogsDiff">
    <property name="text">
-    <string>Toggle message/diff</string>
+    <string>Toggle message/&amp;diff</string>
    </property>
    <property name="iconText">
     <string>Toggle message/diff</string>
@@ -821,7 +859,7 @@
      <normaloff>:/icons/resources/range_select.png</normaloff>:/icons/resources/range_select.png</iconset>
    </property>
    <property name="text">
-    <string>Select range...</string>
+    <string>&amp;Select range...</string>
    </property>
    <property name="toolTip">
     <string>Show 'Select range' dialog</string>
@@ -829,7 +867,8 @@
   </action>
   <action name="ActAmend">
    <property name="icon">
-    <iconset theme="edit-entry"/>
+    <iconset theme="edit-entry">
+     <normaloff>.</normaloff>.</iconset>
    </property>
    <property name="text">
     <string>&amp;Amend commit...</string>
@@ -857,10 +896,10 @@
   </action>
   <action name="ActCheckout">
    <property name="text">
-    <string>&amp;Checkout...</string>
+    <string>Ch&amp;eckout...</string>
    </property>
    <property name="iconText">
-    <string>Checkout</string>
+    <string>Checkout...</string>
    </property>
    <property name="toolTip">
     <string>Checkout selected revision</string>

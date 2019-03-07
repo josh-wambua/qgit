@@ -135,6 +135,8 @@ protected slots:
 	void ActAbout_activated();
 	void ActHelp_activated();
 	void ActMarkDiffToSha_activated();
+    void ActAddProject_activated();
+    void ActRemoveProject_activated();
 	void closeEvent(QCloseEvent* ce);
 
 private:

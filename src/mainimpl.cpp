@@ -172,6 +172,9 @@ MainImpl::MainImpl(SCRef cd, QWidget* p) : QMainWindow(p) {
 	connect(treeView, SIGNAL(itemDoubleClicked(QTreeWidgetItem*, int)),
 	        this, SLOT(treeView_doubleClicked(QTreeWidgetItem*, int)));
 
+    connect (addProjectBtn, SIGNAL(clicked()), this, SLOT(ActAddProject_activated()));
+
+
 	// use most recent repo as startup dir if it exists and user opted to do so
 	QStringList recents(settings.value(REC_REP_KEY).toStringList());
 	QDir checkRepo;
@@ -2134,7 +2137,18 @@ void MainImpl::ActHelp_activated() {
 void MainImpl::ActMarkDiffToSha_activated()
 {
 	ListView* lv = rv->tab()->listViewLog;
-	lv->markDiffToSha(lineEditSHA->text());
+    lv->markDiffToSha(lineEditSHA->text());
+}
+
+void MainImpl::ActAddProject_activated()
+{
+    QString newPath = QFileDialog::getExistingDirectory(this, tr("Select project path"));
+
+}
+
+void MainImpl::ActRemoveProject_activated()
+{
+
 }
 
 void MainImpl::ActAbout_activated() {
